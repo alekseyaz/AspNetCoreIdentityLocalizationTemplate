@@ -1,6 +1,6 @@
 # An ASP.NET Core application using Identity with localisation and razor pages
 
-[![Build status](https://ci.appveyor.com/api/projects/status/1111111111?svg=true)](https://ci.appveyor.com/project/alekseyaz/AspNetCoreIdentityLocalizationTemplate) [![NuGet Status](http://img.shields.io/nuget/v/AspNetCoreIdentityLocalizationTemplate.svg?style=flat-square)](https://www.nuget.org/packages/AspNetCoreIdentityLocalizationTemplate/) [Change log](https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate/blob/master/Changelog.md)
+[![Build status](https://ci.appveyor.com/api/projects/status/mt0k4mhsm2vk8f9p?svg=true)](https://ci.appveyor.com/project/alekseyaz/aspnetcoreidentitylocalizationtemplate) [![NuGet Status](http://img.shields.io/nuget/v/AspNetCoreIdentityLocalizationTemplate.svg?style=flat-square)](https://www.nuget.org/packages/AspNetCoreIdentityLocalizationTemplate/) [Change log](https://github.com/alekseyaz/aspnetcoreidentitylocalizationtemplate/blob/master/Changelog.md)
 
 ## Features
 
