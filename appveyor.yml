@@ -8,7 +8,7 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - cmd: choco install dotnetcore-sdk --pre
   - dotnet --version
-  - cd content/StsServerIdentity
+  - cd content/AspNetCoreIdentityLocalizationTemplate
   - dotnet restore
 build_script:
 - dotnet build
