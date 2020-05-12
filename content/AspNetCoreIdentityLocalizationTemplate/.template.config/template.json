@@ -1,0 +1,15 @@
+{
+    "author": "alekseyaz",
+    "classifications": [
+        "AspNetCore",
+        "Identity"
+    ],
+    "name": "ASP.NET Core Identity Localization",
+    "identity": "AspNetCoreIdentityLocalizationTemplate",
+    "shortName": "sts",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "StsServerIdentity",
+    "preferNameDirectory": "true"
+}
