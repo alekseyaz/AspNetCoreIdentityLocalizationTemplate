@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+	<metadata>
+		<id>AspNetCoreIdentityLocalizationTemplate</id>
+		<version>1.0.0</version>
+		<title>AspNetCore.Identity.Localization.Template</title>
+		<license type="file">LICENSE</license>
+		<description>
+		  Creates an ASP.NET Core application using Identity with localisation and razor pages.
+		  Minimal changes to a sample template ASP.NET Core Web Application (MVC, individual User Accounts).
+		</description>
+			<projectUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</projectUrl>
+		<authors>alekseyaz</authors>
+		<owners>alekseyaz</owners>
+		<iconUrl>http://www.gravatar.com/avatar/</iconUrl>
+		<language>en-US</language>
+		<tags>ASP.NET Core Identity Razor Pages IdentityServer4 Localization Template</tags>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<copyright>2020 alekseyaz</copyright>
+		<summary>This standard template ASP.NET Core Web Application (MVC, individual User Accounts) with added localizations, a minimum of changes, was taken as the basis https://github.com/damienbod/IdentityServer4AspNetCoreIdentityTemplate</summary>
+		<releaseNotes></releaseNotes>
+		<repository type="git" url="https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate" />
+		<packageTypes>
+			<packageType name="Template" />
+		</packageTypes>
+	</metadata>
+</package>
+
+    
+
+	

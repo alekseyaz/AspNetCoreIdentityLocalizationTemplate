@@ -1,0 +1,10 @@
+﻿@page
+@using AspNetCoreIdentityLocalization.Resources
+@inject LocService SharedLocalizer
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("CONFIRM_EMAIL");
+}
+
+<h1>@ViewData["Title"]</h1>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
