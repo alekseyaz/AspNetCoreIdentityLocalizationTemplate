@@ -5,7 +5,7 @@
 ## Features
 
 - ASP.NET Core 3.1
-- Latest ASP.NET Core Identity with razor pages
+- Latest ASP.NET Core Identity with Razor Pages
 - Localization en-US, de-DE, it-IT, fr-FR, zh-Hans, es-MX, de-CH, ga-IE, gsw-CH
 - minimum changes to the standard template
 - npm with bundleconfig used for frontend packages
