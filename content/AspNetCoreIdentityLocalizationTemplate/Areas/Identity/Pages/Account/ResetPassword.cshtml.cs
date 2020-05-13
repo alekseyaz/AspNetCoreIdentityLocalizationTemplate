@@ -9,15 +9,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Localization;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ResetPasswordModel : PageModel
+    public class ResetPasswordModel : PageModelLocalizer
     {
         private readonly UserManager<IdentityUser> _userManager;
 
-        public ResetPasswordModel(UserManager<IdentityUser> userManager)
+        public ResetPasswordModel(UserManager<IdentityUser> userManager, IStringLocalizerFactory factory) : base(factory)
         {
             _userManager = userManager;
         }
@@ -27,18 +28,18 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "EMAIL_REQUIRED")]
+            [EmailAddress(ErrorMessage = "EMAIL_INVALID")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "PASSWORD_REQUIRED")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "CONFIRM_PASSWORD")]
+            [Compare("Password", ErrorMessage = "CONFIRM_PASSWORD_NOT_MATCHING")]
             public string ConfirmPassword { get; set; }
 
             public string Code { get; set; }
@@ -48,7 +49,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
         {
             if (code == null)
             {
-                return BadRequest("A code must be supplied for password reset.");
+                return BadRequest(SharedLocalizer["A code must be supplied for password reset."]);
             }
             else
             {

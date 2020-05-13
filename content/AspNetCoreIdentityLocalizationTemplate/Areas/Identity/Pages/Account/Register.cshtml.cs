@@ -12,12 +12,13 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class RegisterModel : PageModel
+    public class RegisterModel : PageModelLocalizer
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
@@ -28,7 +29,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, IStringLocalizerFactory factory) : base(factory)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -45,20 +46,20 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
+            [Required(ErrorMessage = "EMAIL_REQUIRED")]
+            [EmailAddress(ErrorMessage = "EMAIL_INVALID")]
+            [Display(Name = "EMAIL")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "PASSWORD_REQUIRED")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "PASSWORD")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "CONFIRM_PASSWORD")]
+            [Compare("Password", ErrorMessage = "CONFIRM_PASSWORD_NOT_MATCHING")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -88,8 +89,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, SharedLocalizer["CONFIRM_YOUR_EMAIL"],
+                        SharedLocalizer["CONFIRM_YOUR_EMAIL_TEXT", HtmlEncoder.Default.Encode(callbackUrl)]);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

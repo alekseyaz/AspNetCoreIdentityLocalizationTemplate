@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PASSWORD" xml:space="preserve">
-    <value>Password</value>
+    <value>Пароль</value>
   </data>
   <data name="REGISTER" xml:space="preserve">
-    <value>Register</value>
+    <value>Регистрация</value>
   </data>
   <data name="CONFIRM_PASSWORD" xml:space="preserve">
-    <value>Confirm Password</value>
+    <value>Подтвердите пароль</value>
   </data>
   <data name="CONFIRM_PASSWORD_NOT_MATCHING" xml:space="preserve">
-    <value>The password and confirmation password do not match.</value>
+    <value>Пароль и пароль подтверждения не совпадают.</value>
   </data>
   <data name="CREATE_A_NEW_ACCOUNT" xml:space="preserve">
     <value>Create a new account.</value>
@@ -142,7 +142,7 @@
     <value>Email required</value>
   </data>
   <data name="PASSWORD_REQUIRED" xml:space="preserve">
-    <value>Password required</value>
+    <value>Требуется пароль</value>
   </data>
   <data name="RESET" xml:space="preserve">
     <value>Сбросить</value>
@@ -187,13 +187,13 @@
     <value>Confirm email</value>
   </data>
   <data name="CONFIRM_EMAIL_TEXT" xml:space="preserve">
-    <value>Thank you for confirming your email.</value>
+    <value>Спасибо за подтверждение вашей электронной почты.</value>
   </data>
   <data name="CONFIRM_YOUR_EMAIL" xml:space="preserve">
-    <value>Confirm your email</value>
+    <value>Подтвердите ваш адрес электронной почты</value>
   </data>
   <data name="CONFIRM_YOUR_EMAIL_TEXT" xml:space="preserve">
-    <value>Please confirm your account by &lt;a href='{0}'&gt;clicking here&lt;/a&gt;.</value>
+    <value>Пожалуйста, подтвердите свой аккаунт по &lt;a href='{0}'&gt;нажав здесь&lt;/a&gt;.</value>
   </data>
   <data name="FORGOT_PASSWORD_CONFIRMATION" xml:space="preserve">
     <value>Забыли пароль, подтверждение</value>
@@ -283,7 +283,7 @@
     <value>Your password has been reset. Please</value>
   </data>
   <data name="The {0} must be at least {2} and at max {1} characters long." xml:space="preserve">
-    <value>The {0} must be at least {2} and at max {1} characters long.</value>
+    <value>{0} должно быть не менее {2} и не более {1} символов.</value>
   </data>
   <data name="2FA" xml:space="preserve">
     <value>Двухфакторная аутентификация</value>
@@ -316,7 +316,7 @@
     <value>New password required</value>
   </data>
   <data name="PERSONAL_DATA" xml:space="preserve">
-    <value>Personal data</value>
+    <value>Персональные данные</value>
   </data>
   <data name="PROFILE" xml:space="preserve">
     <value>Профиль</value>
@@ -397,7 +397,7 @@
     <value>Verification code is invalid.</value>
   </data>
   <data name="OR" xml:space="preserve">
-    <value>or</value>
+    <value>или</value>
   </data>
   <data name="USER_NOTFOUND" xml:space="preserve">
     <value>Unable to load user with ID '{0}'.</value>
@@ -493,7 +493,7 @@
     <value>Удалить</value>
   </data>
   <data name="RESET_AUTHENTICATOR_INFO" xml:space="preserve">
-    <value>If you reset your authenticator key your authenticator app will not work until you reconfigure it.</value>
+    <value>Если вы сбросите свой ключ аутентификатора, ваше приложение аутентификатора не будет работать, пока вы не перенастроите его.</value>
   </data>
   <data name="RESET_AUTHENTICATOR_KEY" xml:space="preserve">
     <value>Reset authenticator key</value>
@@ -538,7 +538,7 @@
     <value>Your profile has been updated</value>
   </data>
   <data name="STATUS_UPDATE_PROFILE_EMAIL_SEND" xml:space="preserve">
-    <value>Verification email sent. Please check your email.</value>
+    <value>Письмо с подтверждением отправлено. Пожалуйста, проверьте вашу электронную почту.</value>
   </data>
   <data name="USERNAME" xml:space="preserve">
     <value>Имя</value>
@@ -556,7 +556,7 @@
     <value>Да</value>
   </data>
   <data name="CONSENT_APPLICATION_ACCESS" xml:space="preserve">
-    <value>Application Access</value>
+    <value>Доступ к приложениям</value>
   </data>
   <data name="CONSENT_IS_CHECK_UNREQUIRED" xml:space="preserve">
     <value>Uncheck the permissions you do not wish to grant.</value>
@@ -694,35 +694,35 @@
     <comment>Error when a user's security stamp is null.</comment>
   </data>
   <data name="PasswordMismatch" xml:space="preserve">
-    <value>Incorrect password.</value>
+    <value>Неверный пароль.</value>
     <comment>Error when a password doesn't match</comment>
   </data>
   <data name="PasswordRequiresDigit" xml:space="preserve">
-    <value>Passwords must have at least one digit ('0'-'9').</value>
+    <value>Пароли должны содержать хотя бы одну цифру ('0'-'9').</value>
     <comment>Error when passwords do not have a digit</comment>
   </data>
   <data name="PasswordRequiresLower" xml:space="preserve">
-    <value>Passwords must have at least one lowercase ('a'-'z').</value>
+    <value>Пароли должны содержать хотя бы одну строчную букву ('a'-'z').</value>
     <comment>Error when passwords do not have a lowercase letter</comment>
   </data>
   <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
-    <value>Passwords must have at least one non alphanumeric character.</value>
+    <value>Пароли должны содержать хотя бы один не буквенно-цифровой символ.</value>
     <comment>Error when password does not have enough non alphanumeric characters</comment>
   </data>
   <data name="PasswordRequiresUniqueChars" xml:space="preserve">
-    <value>Passwords must use at least {0} different characters.</value>
+    <value>Пароли должны использовать как минимум {0} разные символы.</value>
     <comment>Error message for passwords that are based on similar characters</comment>
   </data>
   <data name="PasswordRequiresUpper" xml:space="preserve">
-    <value>Passwords must have at least one uppercase ('A'-'Z').</value>
+    <value>Пароли должны иметь хотя бы одну заглавную букву ('A'-'Z').</value>
     <comment>Error when passwords do not have an uppercase letter</comment>
   </data>
   <data name="PasswordTooShort" xml:space="preserve">
-    <value>Passwords must be at least {0} characters.</value>
+    <value>Пароли должны быть как минимум {0} символы.</value>
     <comment>Error message for passwords that are too short</comment>
   </data>
   <data name="RecoveryCodeRedemptionFailed" xml:space="preserve">
-    <value>Recovery code redemption failed.</value>
+    <value>Восстановление кода не удалось.</value>
     <comment>Error when a recovery code is not redeemed.</comment>
   </data>
   <data name="RoleNotFound" xml:space="preserve">
@@ -846,7 +846,7 @@
     <value>Offline Access</value>
   </data>
   <data name="Recovery codes" xml:space="preserve">
-    <value>Recovery codes</value>
+    <value>Коды восстановления</value>
   </data>
   <data name="User profile" xml:space="preserve">
     <value>User profile</value>
@@ -1006,5 +1006,17 @@
   </data>
   <data name="You have successfully logged out of the application." xml:space="preserve">
     <value>Вы успешно вышли из приложения.</value>
+  </data>
+  <data name="A code must be supplied for password reset." xml:space="preserve">
+    <value>Код должен быть предоставлен для сброса пароля.</value>
+  </data>
+  <data name="Register confirmation" xml:space="preserve">
+    <value>Register confirmation</value>
+  </data>
+  <data name="RESEND" xml:space="preserve">
+    <value>Отправить</value>
+  </data>
+  <data name="Unable to load user with email" xml:space="preserve">
+    <value>Невозможно загрузить пользователя с электронной почтой {0}.</value>
   </data>
 </root>

@@ -1,7 +1,9 @@
 ﻿@page
+@using AspNetCoreIdentityLocalization.Resources
+@inject LocService SharedLocalizer
 @model ResendEmailConfirmationModel
 @{
-    ViewData["Title"] = "Resend email confirmation";
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("RESEND_EMAIL_CONFIRMATION");
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -16,7 +18,7 @@
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Resend</button>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("RESEND")</button>
         </form>
     </div>
 </div>

@@ -1,7 +1,9 @@
 ﻿@page
+@using AspNetCoreIdentityLocalization.Resources
+@inject LocService SharedLocalizer
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("REGISTER");
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -27,12 +29,12 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("REGISTER")</button>
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>Use another service to register.</h4>
+            <h4>@SharedLocalizer.GetLocalizedHtmlString("Use another service to register.")</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
