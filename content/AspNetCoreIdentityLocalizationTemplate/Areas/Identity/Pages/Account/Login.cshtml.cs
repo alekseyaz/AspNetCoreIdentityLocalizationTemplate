@@ -12,24 +12,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Localization;
+using AspNetCoreIdentityLocalization.Resources;
+using System.Reflection;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class LoginModel : PageModelLocalizer
+    public class LoginModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IStringLocalizer _sharedLocalizer;
 
         public LoginModel(SignInManager<IdentityUser> signInManager, 
             ILogger<LoginModel> logger,
             UserManager<IdentityUser> userManager, 
-            IStringLocalizerFactory factory) : base(factory)
+            IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [BindProperty]
@@ -100,7 +107,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, SharedLocalizer["INVALID_LOGIN_ATTEMPT"]);
+                    ModelState.AddModelError(string.Empty, _sharedLocalizer["INVALID_LOGIN_ATTEMPT"]);
                     return Page();
                 }
             }

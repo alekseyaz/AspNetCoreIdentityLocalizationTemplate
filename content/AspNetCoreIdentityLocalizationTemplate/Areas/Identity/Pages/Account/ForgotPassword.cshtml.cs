@@ -11,19 +11,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Localization;
+using AspNetCoreIdentityLocalization.Resources;
+using System.Reflection;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ForgotPasswordModel : PageModelLocalizer
+    public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly IStringLocalizer _sharedLocalizer;
 
-        public ForgotPasswordModel(UserManager<IdentityUser> userManager, IEmailSender emailSender, IStringLocalizerFactory factory) : base(factory)
+        public ForgotPasswordModel(UserManager<IdentityUser> userManager, IEmailSender emailSender, IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _emailSender = emailSender;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [BindProperty]
@@ -60,8 +67,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
                 await _emailSender.SendEmailAsync(
                     Input.Email,
-                    SharedLocalizer["Reset Password"],
-                    SharedLocalizer["Please reset your password by", HtmlEncoder.Default.Encode(callbackUrl)]);
+                    _sharedLocalizer["Reset Password"],
+                    _sharedLocalizer["Please reset your password by", HtmlEncoder.Default.Encode(callbackUrl)]);
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

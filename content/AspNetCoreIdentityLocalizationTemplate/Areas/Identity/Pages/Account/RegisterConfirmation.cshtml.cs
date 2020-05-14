@@ -7,19 +7,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Localization;
+using AspNetCoreIdentityLocalization.Resources;
+using System.Reflection;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class RegisterConfirmationModel : PageModelLocalizer
+    public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _sender;
+        private readonly IStringLocalizer _sharedLocalizer;
 
-        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender, IStringLocalizerFactory factory) : base(factory)
+        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender, IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _sender = sender;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         public string Email { get; set; }
@@ -38,7 +45,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return NotFound(SharedLocalizer["Unable to load user with email", email]);
+                return NotFound(_sharedLocalizer["Unable to load user with email", email]);
             }
 
             Email = email;

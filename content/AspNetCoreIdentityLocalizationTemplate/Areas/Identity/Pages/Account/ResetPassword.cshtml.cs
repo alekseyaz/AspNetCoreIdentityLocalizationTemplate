@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCoreIdentityLocalization.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +16,18 @@ using Microsoft.Extensions.Localization;
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ResetPasswordModel : PageModelLocalizer
+    public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IStringLocalizer _sharedLocalizer;
 
-        public ResetPasswordModel(UserManager<IdentityUser> userManager, IStringLocalizerFactory factory) : base(factory)
+        public ResetPasswordModel(UserManager<IdentityUser> userManager, IStringLocalizerFactory factory)
         {
             _userManager = userManager;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [BindProperty]
@@ -49,7 +56,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
         {
             if (code == null)
             {
-                return BadRequest(SharedLocalizer["A code must be supplied for password reset."]);
+                return BadRequest(_sharedLocalizer["A code must be supplied for password reset."]);
             }
             else
             {

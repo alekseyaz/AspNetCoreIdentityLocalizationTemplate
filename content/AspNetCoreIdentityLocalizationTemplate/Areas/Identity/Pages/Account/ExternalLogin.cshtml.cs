@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using AspNetCoreIdentityLocalization.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -18,24 +20,29 @@ using Microsoft.Extensions.Logging;
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ExternalLoginModel : PageModelLocalizer
+    public class ExternalLoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly IStringLocalizer _sharedLocalizer;
 
         public ExternalLoginModel(
             SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender,
-            IStringLocalizerFactory factory) : base(factory)
+            IStringLocalizerFactory factory)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _logger = logger;
             _emailSender = emailSender;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [BindProperty]
@@ -74,13 +81,13 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
-                ErrorMessage = $"{SharedLocalizer["Error from external provider:"]} {remoteError}";
+                ErrorMessage = $"{_sharedLocalizer["Error from external provider:"]} {remoteError}";
                 return RedirectToPage("./Login", new {ReturnUrl = returnUrl });
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                ErrorMessage = SharedLocalizer["Error loading external login information."];
+                ErrorMessage = _sharedLocalizer["Error loading external login information."];
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
@@ -118,7 +125,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                ErrorMessage = SharedLocalizer["Error loading external login information during confirmation."];
+                ErrorMessage = _sharedLocalizer["Error loading external login information during confirmation."];
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
@@ -142,8 +149,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, SharedLocalizer["Confirm your email"], 
-                            SharedLocalizer["Please confirm your account by", HtmlEncoder.Default.Encode(callbackUrl)]);
+                        await _emailSender.SendEmailAsync(Input.Email, _sharedLocalizer["Confirm your email"],
+                            _sharedLocalizer["Please confirm your account by", HtmlEncoder.Default.Encode(callbackUrl)]);
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)

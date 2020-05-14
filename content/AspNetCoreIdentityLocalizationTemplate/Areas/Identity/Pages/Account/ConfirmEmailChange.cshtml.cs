@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AspNetCoreIdentityLocalization.Models;
+using AspNetCoreIdentityLocalization.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,15 +16,20 @@ using Microsoft.Extensions.Localization;
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public class ConfirmEmailChangeModel : PageModelLocalizer
+    public class ConfirmEmailChangeModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly IStringLocalizer _sharedLocalizer;
 
-        public ConfirmEmailChangeModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IStringLocalizerFactory factory) : base(factory)
+        public ConfirmEmailChangeModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [TempData]
@@ -38,14 +45,14 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                return NotFound($"{SharedLocalizer["Unable to load user with ID"]} '{userId}'.");
+                return NotFound($"{_sharedLocalizer["Unable to load user with ID"]} '{userId}'.");
             }
 
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ChangeEmailAsync(user, email, code);
             if (!result.Succeeded)
             {
-                StatusMessage = SharedLocalizer["Error changing email."];
+                StatusMessage = _sharedLocalizer["Error changing email."];
                 return Page();
             }
 
@@ -54,12 +61,12 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             var setUserNameResult = await _userManager.SetUserNameAsync(user, email);
             if (!setUserNameResult.Succeeded)
             {
-                StatusMessage = SharedLocalizer["Error changing user name."];
+                StatusMessage = _sharedLocalizer["Error changing user name."];
                 return Page();
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = SharedLocalizer["Thank you for confirming your email change."];
+            StatusMessage = _sharedLocalizer["Thank you for confirming your email change."];
             return Page();
         }
     }
