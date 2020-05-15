@@ -57,7 +57,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, _sharedLocalizer["STATUS_UPDATE_PROFILE_EMAIL_SEND"]);
+                ModelState.AddModelError(string.Empty, _sharedLocalizer["Verification email sent. Please check your email."]);
                 return Page();
             }
 
@@ -69,9 +69,12 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                 pageHandler: null,
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(Input.Email, _sharedLocalizer["CONFIRM_YOUR_EMAIL"],
-                _sharedLocalizer["CONFIRM_YOUR_EMAIL_TEXT", HtmlEncoder.Default.Encode(callbackUrl)]);
-            ModelState.AddModelError(string.Empty, _sharedLocalizer["STATUS_UPDATE_PROFILE_EMAIL_SEND"]);
+            await _emailSender.SendEmailAsync(
+                Input.Email,
+                _sharedLocalizer["Confirm your email"],
+                $"{_sharedLocalizer["Please confirm your account by"]} <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>{_sharedLocalizer["clicking here"]}</a>.");
+
+            ModelState.AddModelError(string.Empty, _sharedLocalizer["Verification email sent. Please check your email."]);
             return Page();
         }
     }

@@ -3,15 +3,16 @@
 @inject LocService SharedLocalizer
 @model ExternalLoginModel
 @{
-    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("REGISTER");
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Register");
 }
 
 <h1>@ViewData["Title"]</h1>
-<h4>@SharedLocalizer.GetLocalizedHtmlString("EXTERNAL_LOGIN_ASSOCIATE_ACCOUNT", @Model.LoginProvider)</h4>
+<h4>@SharedLocalizer.GetLocalizedHtmlString("Associate your account.", @Model.LoginProvider)</h4>
 <hr />
 
 <p class="text-info">
-    @SharedLocalizer.GetLocalizedHtmlString("EXTERNAL_LOGIN_TEXT", @Model.LoginProvider)
+    @SharedLocalizer.GetLocalizedHtmlString("You've successfully authenticated with")<strong>@Model.LoginProvider</strong>.
+    @SharedLocalizer.GetLocalizedHtmlString("Please enter an email address for this site below and click the Register button to finish logging in.")
 </p>
 
 <div class="row">
@@ -23,7 +24,7 @@
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("REGISTER")</button>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Register")</button>
         </form>
     </div>
 </div>

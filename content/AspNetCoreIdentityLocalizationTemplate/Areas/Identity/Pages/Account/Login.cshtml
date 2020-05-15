@@ -4,7 +4,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN");
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Log in");
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -34,17 +34,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN")</button>
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Log in")</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">@SharedLocalizer.GetLocalizedHtmlString("FORGOT_YOUR_PASSWORD")</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">@SharedLocalizer.GetLocalizedHtmlString("Forgot your password?")</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@SharedLocalizer.GetLocalizedHtmlString("REGISTER_AS_NEW_USER")</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@SharedLocalizer.GetLocalizedHtmlString("Register as a new user")</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">@SharedLocalizer.GetLocalizedHtmlString("RESEND_EMAIL_CONFIRMATION")</a>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">@SharedLocalizer.GetLocalizedHtmlString("Resend email confirmation")</a>
                     </p>
                 </div>
             </form>
@@ -58,11 +58,10 @@
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
-                                    <p>
-
-                                        @SharedLocalizer.GetLocalizedHtmlString("There are no external authentication services configured. See") <a href="https://go.microsoft.com/fwlink/?LinkID=532715">@SharedLocalizer.GetLocalizedHtmlString("this article")</a>
-                                        @SharedLocalizer.GetLocalizedHtmlString("for details on setting up this ASP.NET application to support logging in via external services.")
-                                    </p>
+                        <p>
+                            @SharedLocalizer.GetLocalizedHtmlString("There are no external authentication services configured. See") <a href="https://go.microsoft.com/fwlink/?LinkID=532715">@SharedLocalizer.GetLocalizedHtmlString("this article")</a>
+                            @SharedLocalizer.GetLocalizedHtmlString("for details on setting up this ASP.NET application to support logging in via external services.")
+                        </p>
                     </div>
                 }
                 else

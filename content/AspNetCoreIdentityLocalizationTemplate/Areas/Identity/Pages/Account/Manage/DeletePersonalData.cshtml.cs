@@ -40,6 +40,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
         {
             [Required(ErrorMessage = "The Password field is required.")]
             [DataType(DataType.Password)]
+            [Display(Name = "Password")]
             public string Password { get; set; }
         }
 

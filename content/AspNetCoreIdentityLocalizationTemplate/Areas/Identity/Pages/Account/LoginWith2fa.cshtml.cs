@@ -40,13 +40,13 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "TWOFACTORCODE_REQUIRED")]
+            [Required]
             [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Text)]
-            [Display(Name = "ACCOUNT_LOGIN_AUTHENTICATOR_CODE")]
+            [Display(Name = "Authenticator code")]
             public string TwoFactorCode { get; set; }
 
-            [Display(Name = "REMEMBER_THIS_MACHINE")]
+            [Display(Name = "Remember this machine")]
             public bool RememberMachine { get; set; }
         }
 
@@ -98,7 +98,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             else
             {
                 _logger.LogWarning("Invalid authenticator code entered for user with ID '{UserId}'.", user.Id);
-                ModelState.AddModelError(string.Empty, _sharedLocalizer["INVALID_AUTHENTICATOR_CODE"]);
+                ModelState.AddModelError(string.Empty, _sharedLocalizer["Invalid authenticator code."]);
                 return Page();
             }
         }

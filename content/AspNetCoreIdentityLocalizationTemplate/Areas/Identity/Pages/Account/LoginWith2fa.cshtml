@@ -3,12 +3,12 @@
 @inject LocService SharedLocalizer
 @model LoginWith2faModel
 @{
-    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN_2FA");
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Two-factor authentication");
 }
 
 <h1>@ViewData["Title"]</h1>
 <hr />
-<p>@SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN_2FA_TEXT")</p>
+<p>@SharedLocalizer.GetLocalizedHtmlString("Your login is protected with an authenticator app. Enter your authenticator code below.")</p>
 <div class="row">
     <div class="col-md-4">
         <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
@@ -28,14 +28,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN")</button>
+                <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Log in")</button>
             </div>
         </form>
     </div>
 </div>
 <p>
-    @SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN_2FA_NO_AUTHENTICATOR_DEVICE")
-    <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">>@SharedLocalizer.GetLocalizedHtmlString("ACCOUNT_LOGIN_2FA_RECOVERY_CODE_TEXT")</a>.
+    @SharedLocalizer.GetLocalizedHtmlString("Don't have access to your authenticator device? You can")
+    <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">@SharedLocalizer.GetLocalizedHtmlString("log in with a recovery code")</a>.
 </p>
 
 @section Scripts {

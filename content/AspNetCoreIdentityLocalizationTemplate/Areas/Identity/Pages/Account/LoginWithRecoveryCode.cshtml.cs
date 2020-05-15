@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
-using AspNetCoreIdentityLocalization.Resources;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
@@ -19,16 +16,11 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
-        private readonly IStringLocalizer _sharedLocalizer;
 
-        public LoginWithRecoveryCodeModel(SignInManager<IdentityUser> signInManager, ILogger<LoginWithRecoveryCodeModel> logger, IStringLocalizerFactory factory)
+        public LoginWithRecoveryCodeModel(SignInManager<IdentityUser> signInManager, ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
-
-            var type = typeof(SharedResource);
-            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
-            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         [BindProperty]
@@ -39,9 +31,9 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
         public class InputModel
         {
             [BindProperty]
-            [Required(ErrorMessage = "ACCOUNT_RECOVERY_CODE_REQUIRED")]
+            [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "ACCOUNT_RECOVERY_CODE")]
+            [Display(Name = "Recovery Code")]
             public string RecoveryCode { get; set; }
         }
 
@@ -89,7 +81,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             else
             {
                 _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
-                ModelState.AddModelError(string.Empty, _sharedLocalizer["INVALID_RECOVERY_CODE"]);
+                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
                 return Page();
             }
         }

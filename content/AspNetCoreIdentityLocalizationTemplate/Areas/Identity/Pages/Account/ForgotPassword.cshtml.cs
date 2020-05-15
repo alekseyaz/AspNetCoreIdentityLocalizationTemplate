@@ -68,7 +68,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                 await _emailSender.SendEmailAsync(
                     Input.Email,
                     _sharedLocalizer["Reset Password"],
-                    _sharedLocalizer["Please reset your password by", HtmlEncoder.Default.Encode(callbackUrl)]);
+                    $"{_sharedLocalizer["Please reset your password by"]} <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>{_sharedLocalizer["clicking here"]}</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

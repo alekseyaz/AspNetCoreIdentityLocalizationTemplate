@@ -150,7 +150,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                             protocol: Request.Scheme);
 
                         await _emailSender.SendEmailAsync(Input.Email, _sharedLocalizer["Confirm your email"],
-                            _sharedLocalizer["Please confirm your account by", HtmlEncoder.Default.Encode(callbackUrl)]);
+                            $"{_sharedLocalizer["Please confirm your account by"]} <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>{_sharedLocalizer["clicking here"]}</a>.");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)

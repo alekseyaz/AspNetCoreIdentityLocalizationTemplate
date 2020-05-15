@@ -107,7 +107,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, _sharedLocalizer["INVALID_LOGIN_ATTEMPT"]);
+                    ModelState.AddModelError(string.Empty, _sharedLocalizer["Invalid login attempt."]);
                     return Page();
                 }
             }

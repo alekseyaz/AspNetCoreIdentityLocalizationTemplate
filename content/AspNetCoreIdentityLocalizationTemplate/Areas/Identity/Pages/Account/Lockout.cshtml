@@ -3,10 +3,10 @@
 @inject LocService SharedLocalizer
 @model LockoutModel
 @{
-    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("LOCKED_OUT");
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Locked out");
 }
 
 <header>
     <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">@SharedLocalizer.GetLocalizedHtmlString("LOCKED_OUT_TEXT")</p>
+    <p class="text-danger">@SharedLocalizer.GetLocalizedHtmlString("This account has been locked out, please try again later.")</p>
 </header>

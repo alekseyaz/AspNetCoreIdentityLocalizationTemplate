@@ -47,8 +47,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "CONFIRM_PASSWORD")]
-            [Compare("Password", ErrorMessage = "CONFIRM_PASSWORD_NOT_MATCHING")]
+            [Display(Name = "Confirm password")]
+            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
             public string Code { get; set; }
