@@ -38,7 +38,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "The Password field is required.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
         }

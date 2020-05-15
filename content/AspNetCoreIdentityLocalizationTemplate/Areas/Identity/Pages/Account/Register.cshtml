@@ -3,7 +3,7 @@
 @inject LocService SharedLocalizer
 @model RegisterModel
 @{
-    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("REGISTER");
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Register");
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -29,7 +29,7 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("REGISTER")</button>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Register")</button>
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
@@ -41,8 +41,8 @@
                 {
                     <div>
                         <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
+                            @SharedLocalizer.GetLocalizedHtmlString("There are no external authentication services configured. See") <a href="https://go.microsoft.com/fwlink/?LinkID=532715">@SharedLocalizer.GetLocalizedHtmlString("this article")</a>
+                            @SharedLocalizer.GetLocalizedHtmlString("for details on setting up this ASP.NET application to support logging in via external services.")
                         </p>
                     </div>
                 }

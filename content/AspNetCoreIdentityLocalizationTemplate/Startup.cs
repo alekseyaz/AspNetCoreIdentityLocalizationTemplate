@@ -44,13 +44,6 @@ namespace AspNetCoreIdentityLocalization
                         {
                             new CultureInfo("ru-RU"),
                             new CultureInfo("en-US"),
-                            new CultureInfo("de-DE"),
-                            new CultureInfo("it-IT"),
-                            new CultureInfo("gsw-CH"),
-                            new CultureInfo("fr-FR"),
-                            new CultureInfo("zh-Hans"),
-                            new CultureInfo("ga-IE"),
-                            new CultureInfo("es-MX")
                         };
 
                     options.DefaultRequestCulture = new RequestCulture(culture: "ru-RU", uiCulture: "ru-RU");
@@ -63,7 +56,8 @@ namespace AspNetCoreIdentityLocalization
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<StsIdentityErrorDescriber>();
             services.AddControllersWithViews()
                 .AddViewLocalization()
                 .AddDataAnnotationsLocalization(options =>

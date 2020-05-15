@@ -37,8 +37,9 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "EMAIL_REQUIRED")]
-            [EmailAddress(ErrorMessage = "EMAIL_INVALID")]
+            [Required(ErrorMessage = "The E-mail field is required.")]
+            [EmailAddress(ErrorMessage = "The E-mail field is not a valid e-mail address.")]
+            [Display(Name = "Email")]
             public string Email { get; set; }
         }
 

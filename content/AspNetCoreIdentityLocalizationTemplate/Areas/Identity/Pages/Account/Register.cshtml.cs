@@ -53,20 +53,20 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "EMAIL_REQUIRED")]
-            [EmailAddress(ErrorMessage = "EMAIL_INVALID")]
-            [Display(Name = "EMAIL")]
+            [Required(ErrorMessage = "The E-mail field is required.")]
+            [EmailAddress(ErrorMessage = "The E-mail field is not a valid e-mail address.")]
+            [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "PASSWORD_REQUIRED")]
+            [Required(ErrorMessage = "The Password field is required.")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "PASSWORD")]
+            [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "CONFIRM_PASSWORD")]
-            [Compare("Password", ErrorMessage = "CONFIRM_PASSWORD_NOT_MATCHING")]
+            [Display(Name = "Confirm password")]
+            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -96,8 +96,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, _sharedLocalizer["CONFIRM_YOUR_EMAIL"],
-                        _sharedLocalizer["CONFIRM_YOUR_EMAIL_TEXT", HtmlEncoder.Default.Encode(callbackUrl)]);
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
