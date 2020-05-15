@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Linq;
@@ -10,6 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Localization;
+using AspNetCoreIdentityLocalization.Resources;
+using System.Reflection;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
 {
@@ -18,17 +20,23 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<EnableAuthenticatorModel> _logger;
         private readonly UrlEncoder _urlEncoder;
+        private readonly IStringLocalizer _sharedLocalizer;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
 
         public EnableAuthenticatorModel(
             UserManager<IdentityUser> userManager,
             ILogger<EnableAuthenticatorModel> logger,
-            UrlEncoder urlEncoder)
+            UrlEncoder urlEncoder,
+            IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _logger = logger;
             _urlEncoder = urlEncoder;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         public string SharedKey { get; set; }
@@ -58,7 +66,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
             }
 
             await LoadSharedKeyAndQrCodeUriAsync(user);
@@ -71,7 +79,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
             }
 
             if (!ModelState.IsValid)

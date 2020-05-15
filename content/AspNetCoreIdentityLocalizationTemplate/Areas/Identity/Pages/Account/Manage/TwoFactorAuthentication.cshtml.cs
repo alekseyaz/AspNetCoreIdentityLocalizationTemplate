@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Reflection;
 using System.Threading.Tasks;
+using AspNetCoreIdentityLocalization.Resources;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
 namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
@@ -16,15 +16,21 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<TwoFactorAuthenticationModel> _logger;
+        private readonly IStringLocalizer _sharedLocalizer;
 
         public TwoFactorAuthenticationModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            ILogger<TwoFactorAuthenticationModel> logger)
+            ILogger<TwoFactorAuthenticationModel> logger,
+            IStringLocalizerFactory factory)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+
+            var type = typeof(SharedResource);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+            _sharedLocalizer = factory.Create("SharedResource", assemblyName.Name);
         }
 
         public bool HasAuthenticator { get; set; }
@@ -44,7 +50,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
             }
 
             HasAuthenticator = await _userManager.GetAuthenticatorKeyAsync(user) != null;
@@ -60,7 +66,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
             }
 
             await _signInManager.ForgetTwoFactorClientAsync();

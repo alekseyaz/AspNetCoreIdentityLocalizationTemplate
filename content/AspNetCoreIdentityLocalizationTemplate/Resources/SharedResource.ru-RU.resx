@@ -1019,4 +1019,10 @@
   <data name="Unable to load user with email" xml:space="preserve">
     <value>Невозможно загрузить пользователя с электронной почтой {0}.</value>
   </data>
+  <data name="Confirm new password" xml:space="preserve">
+    <value>Подтвердите новый пароль</value>
+  </data>
+  <data name="The external login was not removed." xml:space="preserve">
+    <value>Внешний логин не был удален.</value>
+  </data>
 </root>
