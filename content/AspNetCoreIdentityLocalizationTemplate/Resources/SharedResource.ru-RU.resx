@@ -148,7 +148,7 @@
     <value>и</value>
   </data>
   <data name="Associate your account." xml:space="preserve">
-    <value>Свяжите свою учетную запись {0}</value>
+    <value>Свяжите свою учетную запись '{0}'</value>
   </data>
   <data name="Authenticator app" xml:space="preserve">
     <value>Приложение для аутентификации</value>
@@ -177,6 +177,10 @@
   <data name="clicking here" xml:space="preserve">
     <value>нажав здесь</value>
   </data>
+  <data name="ConcurrencyFailure" xml:space="preserve">
+    <value>Сбой в параллельных запросах. Возможно объект был изменен.</value>
+    <comment>Error when optimistic concurrency fails</comment>
+  </data>
   <data name="Configure authenticator app" xml:space="preserve">
     <value>Настроить приложение двухфакторной аутентификации</value>
   </data>
@@ -197,6 +201,10 @@
   </data>
   <data name="Current password" xml:space="preserve">
     <value>Текущий пароль</value>
+  </data>
+  <data name="DefaultError" xml:space="preserve">
+    <value>Произошла неизвестная ошибка при авторизации.</value>
+    <comment>Default identity result error message</comment>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
@@ -230,6 +238,18 @@
   </data>
   <data name="Download Your Data" xml:space="preserve">
     <value>Скачать ваши данные</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>E-mail '{0}' уже используется.</value>
+    <comment>Error for duplicate emails</comment>
+  </data>
+  <data name="DuplicateRoleName" xml:space="preserve">
+    <value>Роль с именем '{0}' уже существует.</value>
+    <comment>Error for duplicate roles</comment>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>Пользователь '{0}' уже зарегистрирован.</value>
+    <comment>Error for duplicate user names</comment>
   </data>
   <data name="enable QR code generation" xml:space="preserve">
     <value>включить генерацию QR-кода</value>
@@ -315,6 +335,34 @@
   <data name="Invalid login attempt." xml:space="preserve">
     <value>Неверная попытка входа.</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>E-mail '{0}' содержит неверный формат.</value>
+    <comment>Invalid email</comment>
+  </data>
+  <data name="InvalidManagerType" xml:space="preserve">
+    <value>Type {0} must derive from {1}&lt;{2}&gt;.</value>
+    <comment>Error when the manager type is not derived correctly</comment>
+  </data>
+  <data name="InvalidPasswordHasherCompatibilityMode" xml:space="preserve">
+    <value>The provided PasswordHasherCompatibilityMode is invalid.</value>
+    <comment>Error when the password hasher doesn't understand the format it's being asked to produce.</comment>
+  </data>
+  <data name="InvalidPasswordHasherIterationCount" xml:space="preserve">
+    <value>The iteration count must be a positive integer.</value>
+    <comment>Error when the iteration count is &lt; 1.</comment>
+  </data>
+  <data name="InvalidRoleName" xml:space="preserve">
+    <value>Имя роли '{0}' задано не верно (содержит не допустимые символы либо длину).</value>
+    <comment>Error for invalid role names</comment>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>Неправильно указан код подтверждения (token).</value>
+    <comment>Error when a token is not recognized</comment>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Имя пользователя '{0}' указано не верно (содержит не допустимые символы либо длину).</value>
+    <comment>User names can only contain letters or digits</comment>
+  </data>
   <data name="Learn about" xml:space="preserve">
     <value>Узнайте о</value>
   </data>
@@ -336,6 +384,10 @@
   <data name="Login" xml:space="preserve">
     <value>Войти</value>
   </data>
+  <data name="LoginAlreadyAssociated" xml:space="preserve">
+    <value>Данный пользователь уже привязан к аккаунту.</value>
+    <comment>Error when a login already linked</comment>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Выйти</value>
   </data>
@@ -348,11 +400,31 @@
   <data name="Manage your external logins" xml:space="preserve">
     <value>Управляйте своими внешними логинами</value>
   </data>
+  <data name="MustCallAddIdentity" xml:space="preserve">
+    <value>AddIdentity must be called on the service collection.</value>
+    <comment>Error when AddIdentity is not called</comment>
+  </data>
   <data name="New email" xml:space="preserve">
     <value>Новый E-mail</value>
   </data>
   <data name="New password" xml:space="preserve">
     <value>Новый пароль</value>
+  </data>
+  <data name="NoPersonalDataProtector" xml:space="preserve">
+    <value>No IPersonalDataProtector service was registered, this is required when ProtectPersonalData = true.</value>
+    <comment>Error when there is no IPersonalDataProtector</comment>
+  </data>
+  <data name="NoRoleType" xml:space="preserve">
+    <value>No RoleType was specified, try AddRoles&lt;TRole&gt;().</value>
+    <comment>Error when the IdentityBuilder.RoleType was not specified</comment>
+  </data>
+  <data name="NoTokenProvider" xml:space="preserve">
+    <value>No IUserTwoFactorTokenProvider&lt;{0}&gt; named '{1}' is registered.</value>
+    <comment>Error when there is no IUserTwoFactorTokenProvider</comment>
+  </data>
+  <data name="NullSecurityStamp" xml:space="preserve">
+    <value>User security stamp cannot be null.</value>
+    <comment>Error when a user's security stamp is null.</comment>
   </data>
   <data name="Once you have scanned the QR code or input the key above, your two factor authentication app will provide you" xml:space="preserve">
     <value>Как только вы отсканируете QR-код или введете указанный выше ключ, ваше приложение двухфакторной аутентификации предоставит вам</value>
@@ -365,6 +437,34 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Пароли не совпадают.</value>
+    <comment>Error when a password doesn't match</comment>
+  </data>
+  <data name="PasswordRequiresDigit" xml:space="preserve">
+    <value>Пароль должен содержать минимум одну цифру ('0'-'9').</value>
+    <comment>Error when passwords do not have a digit</comment>
+  </data>
+  <data name="PasswordRequiresLower" xml:space="preserve">
+    <value>Пароль должен содержать минимум одну строчную букву ('a'-'z').</value>
+    <comment>Error when passwords do not have a lowercase letter</comment>
+  </data>
+  <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
+    <value>Пароль должен содержать минимум один специальный символ (не буквенно-цифровой).</value>
+    <comment>Error when password does not have enough non alphanumeric characters</comment>
+  </data>
+  <data name="PasswordRequiresUniqueChars" xml:space="preserve">
+    <value>Пароль должен содержать минимум '{0}' не повторяющихся символов.</value>
+    <comment>Error message for passwords that are based on similar characters</comment>
+  </data>
+  <data name="PasswordRequiresUpper" xml:space="preserve">
+    <value>Пароль должен содержать минимум одну заглавную букву ('A'-'Z').</value>
+    <comment>Error when passwords do not have an uppercase letter</comment>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Пароль слишком короткий. Минимальное количество символов: '{0}'.</value>
+    <comment>Error message for passwords that are too short</comment>
   </data>
   <data name="Personal data" xml:space="preserve">
     <value>Личные данные</value>
@@ -410,6 +510,10 @@
   </data>
   <data name="recovery codes left." xml:space="preserve">
     <value>коды восстановления остались.</value>
+  </data>
+  <data name="RecoveryCodeRedemptionFailed" xml:space="preserve">
+    <value>Не удалось использовать код восстановления.</value>
+    <comment>Error when a recovery code is not redeemed.</comment>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
@@ -459,6 +563,10 @@
   <data name="reset your authenticator keys." xml:space="preserve">
     <value>сбросить ключи аутентификатора</value>
   </data>
+  <data name="RoleNotFound" xml:space="preserve">
+    <value>Role {0} does not exist.</value>
+    <comment>Error when a role does not exist</comment>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>
   </data>
@@ -473,6 +581,74 @@
   </data>
   <data name="Setup authenticator app" xml:space="preserve">
     <value>Настройка приложения-аутентификатора</value>
+  </data>
+  <data name="StoreNotIProtectedUserStore" xml:space="preserve">
+    <value>Store does not implement IProtectedUserStore&lt;TUser&gt; which is required when ProtectPersonalData = true.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIQueryableRoleStore" xml:space="preserve">
+    <value>Store does not implement IQueryableRoleStore&lt;TRole&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIQueryableUserStore" xml:space="preserve">
+    <value>Store does not implement IQueryableUserStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIRoleClaimStore" xml:space="preserve">
+    <value>Store does not implement IRoleClaimStore&lt;TRole&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserAuthenticationTokenStore" xml:space="preserve">
+    <value>Store does not implement IUserAuthenticationTokenStore&lt;User&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserAuthenticatorKeyStore" xml:space="preserve">
+    <value>Store does not implement IUserAuthenticatorKeyStore&lt;User&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserClaimStore" xml:space="preserve">
+    <value>Store does not implement IUserClaimStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserConfirmationStore" xml:space="preserve">
+    <value>Store does not implement IUserConfirmationStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserEmailStore" xml:space="preserve">
+    <value>Store does not implement IUserEmailStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserLockoutStore" xml:space="preserve">
+    <value>Store does not implement IUserLockoutStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserLoginStore" xml:space="preserve">
+    <value>Store does not implement IUserLoginStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserPasswordStore" xml:space="preserve">
+    <value>Store does not implement IUserPasswordStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserPhoneNumberStore" xml:space="preserve">
+    <value>Store does not implement IUserPhoneNumberStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserRoleStore" xml:space="preserve">
+    <value>Store does not implement IUserRoleStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserSecurityStampStore" xml:space="preserve">
+    <value>Store does not implement IUserSecurityStampStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserTwoFactorRecoveryCodeStore" xml:space="preserve">
+    <value>Store does not implement IUserTwoFactorRecoveryCodeStore&lt;User&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
+  </data>
+  <data name="StoreNotIUserTwoFactorStore" xml:space="preserve">
+    <value>Store does not implement IUserTwoFactorStore&lt;TUser&gt;.</value>
+    <comment>Error when the store does not implement this interface</comment>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Подтвердить</value>
@@ -502,16 +678,16 @@
     <value>Пароль и пароль подтверждения не совпадают.</value>
   </data>
   <data name="The {0} field is not a valid e-mail address." xml:space="preserve">
-    <value>Поле {0} не является действительным адресом электронной почты.</value>
+    <value>Поле '{0}' не является действительным адресом электронной почты.</value>
   </data>
   <data name="The {0} field is not a valid phone number." xml:space="preserve">
-    <value>Поле {0} не является допустимым номером телефона.</value>
+    <value>Поле '{0}' не является допустимым номером телефона.</value>
   </data>
   <data name="The {0} field is required" xml:space="preserve">
-    <value>Поле {0} обязательно для заполнения.</value>
+    <value>Поле '{0}' обязательно для заполнения.</value>
   </data>
   <data name="The {0} field is required." xml:space="preserve">
-    <value>Поле (0) обязательно для заполнения.</value>
+    <value>Поле '{0}' обязательно для заполнения.</value>
   </data>
   <data name="The {0} must be at least {2} and at max {1} characters long." xml:space="preserve">
     <value>{0} должно быть не менее {2} и не более {1} символов.</value>
@@ -561,8 +737,32 @@
   <data name="Use this page to detail your site's privacy policy." xml:space="preserve">
     <value>Используйте эту страницу, чтобы детализировать политику конфиденциальности вашего сайта.</value>
   </data>
+  <data name="UserAlreadyHasPassword" xml:space="preserve">
+    <value>Пароль для пользователя уже задан.</value>
+    <comment>Error when AddPasswordAsync called when a user already has a password</comment>
+  </data>
+  <data name="UserAlreadyInRole" xml:space="preserve">
+    <value>Роль '{0}' уже привязана к пользователю.</value>
+    <comment>Error when a user is already in a role</comment>
+  </data>
+  <data name="UserLockedOut" xml:space="preserve">
+    <value>User is locked out.</value>
+    <comment>Error when a user is locked out</comment>
+  </data>
+  <data name="UserLockoutNotEnabled" xml:space="preserve">
+    <value>Блокировка входа пользователя не выключена.</value>
+    <comment>Error when lockout is not enabled</comment>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Логин</value>
+  </data>
+  <data name="UserNameNotFound" xml:space="preserve">
+    <value>User {0} does not exist.</value>
+    <comment>Error when a user does not exist</comment>
+  </data>
+  <data name="UserNotInRole" xml:space="preserve">
+    <value>Пользователь должен иметь роль: '{0}'</value>
+    <comment>Error when a user is not in the role</comment>
   </data>
   <data name="Verification Code" xml:space="preserve">
     <value>Подтверждающий код</value>

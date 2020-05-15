@@ -11,11 +11,11 @@ namespace Microsoft.AspNetCore.Identity
     /// <remarks>
     /// These errors are returned to controllers and are generally used as display messages to end users.
     /// </remarks>
-    public class StsIdentityErrorDescriber : IdentityErrorDescriber
+    public class MultilanguageIdentityErrorDescriber : IdentityErrorDescriber
     {
         private readonly LocService _sharedLocalizer;
 
-        public StsIdentityErrorDescriber(LocService sharedLocalizer)
+        public MultilanguageIdentityErrorDescriber(LocService sharedLocalizer)
         {
             _sharedLocalizer = sharedLocalizer;
         }
