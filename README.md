@@ -6,7 +6,7 @@
 
 - ASP.NET Core 3.1
 - Latest ASP.NET Core Identity with Razor Pages
-- Localization en-US, de-DE, it-IT, fr-FR, zh-Hans, es-MX, de-CH, ga-IE, gsw-CH
+- Localization en-US, ru-RU
 - minimum changes to the standard template
 - npm with bundleconfig used for frontend packages
 
@@ -87,5 +87,3 @@ dotnet ef database update  --verbose
 http://docs.identityserver.io/en/release/
 
 https://github.com/IdentityServer/IdentityServer4
-
-https://github.com/damienbod/IdentityServer4AspNetCoreIdentityTemplate
