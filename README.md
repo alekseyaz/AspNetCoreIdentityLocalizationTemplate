@@ -44,7 +44,7 @@ Use the `-n` or `--name` parameter to change the name of the output created. Thi
 
 ### Setup, Using the application for your System
 
-- Change the EF Core code from SQLite to your required database
+- Change the EF Core code from SqlServer to your required database
 - Change the ApplicationUser class as required, remove/add the properties
 - Add the migrations and create the database
 - Define the deployment URLs, create the certs, and use these in your application (Startup, config files)
