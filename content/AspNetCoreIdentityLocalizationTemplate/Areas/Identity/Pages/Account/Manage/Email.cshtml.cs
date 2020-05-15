@@ -49,8 +49,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "The {0} field is required.")]
+            [EmailAddress(ErrorMessage = "The {0} field is not a valid e-mail address.")]
             [Display(Name = "New email")]
             public string NewEmail { get; set; }
         }
@@ -73,7 +73,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
+                return NotFound($"{_sharedLocalizer["Unable to load user with ID"]} '{_userManager.GetUserId(User)}'.");
             }
 
             await LoadAsync(user);
@@ -85,7 +85,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
+                return NotFound($"{_sharedLocalizer["Unable to load user with ID"]} '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -106,8 +106,8 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    _sharedLocalizer["Confirm your email"],
+                    $"{_sharedLocalizer["Please confirm your account by"]} <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>{_sharedLocalizer["clicking here"]}</a>.");
 
                 StatusMessage = "Confirmation link to change email sent. Please check your email.";
                 return RedirectToPage();
@@ -122,7 +122,7 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound(_sharedLocalizer["USER_NOTFOUND", _userManager.GetUserId(User)]);
+                return NotFound($"{_sharedLocalizer["Unable to load user with ID"]} '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -142,10 +142,10 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account.Manage
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                _sharedLocalizer["Confirm your email"],
+                $"{_sharedLocalizer["Please confirm your account by"]} <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>{_sharedLocalizer["clicking here"]}</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = _sharedLocalizer["Verification email sent. Please check your email."];
             return RedirectToPage();
         }
     }

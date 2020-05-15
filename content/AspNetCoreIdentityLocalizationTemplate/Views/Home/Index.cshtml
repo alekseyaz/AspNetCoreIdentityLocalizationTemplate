@@ -1,8 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using AspNetCoreIdentityLocalization.Resources
+@inject LocService SharedLocalizer
+@{
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Home Page");
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">@SharedLocalizer.GetLocalizedHtmlString("Welcome")</h1>
+    <p>@SharedLocalizer.GetLocalizedHtmlString("Learn about") <a href="https://docs.microsoft.com/aspnet/core">@SharedLocalizer.GetLocalizedHtmlString("building Web apps with ASP.NET Core")</a>.</p>
 </div>

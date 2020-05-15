@@ -3,7 +3,7 @@
 @inject LocService SharedLocalizer
 @model DownloadPersonalDataModel
 @{
-    ViewData["Title"] = "Download Your Data";
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("Download Your Data");
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
 

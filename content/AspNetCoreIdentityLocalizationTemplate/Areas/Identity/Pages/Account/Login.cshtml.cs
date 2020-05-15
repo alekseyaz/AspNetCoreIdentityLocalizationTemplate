@@ -51,12 +51,12 @@ namespace AspNetCoreIdentityLocalization.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "The E-mail field is required.")]
-            [EmailAddress(ErrorMessage = "The E-mail field is not a valid e-mail address.")]
+            [Required(ErrorMessage = "The {0} field is required.")]
+            [EmailAddress(ErrorMessage = "The {0} field is not a valid e-mail address.")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "The Password field is required.")]
+            [Required(ErrorMessage = "The {0} field is required.")]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
