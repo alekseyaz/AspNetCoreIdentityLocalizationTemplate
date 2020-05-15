@@ -199,6 +199,9 @@
   <data name="Confirm your email" xml:space="preserve">
     <value>Подтвердите ваш адрес электронной почты</value>
   </data>
+  <data name="Create a new account." xml:space="preserve">
+    <value>Создать новый аккаунт.</value>
+  </data>
   <data name="Current password" xml:space="preserve">
     <value>Текущий пароль</value>
   </data>
@@ -729,10 +732,10 @@
     <value>Используйте локальную учетную запись для входа.</value>
   </data>
   <data name="Use another service to log in." xml:space="preserve">
-    <value>Для входа используйте другой сервис.</value>
+    <value>Для входа используйте внешний сервис.</value>
   </data>
   <data name="Use another service to register." xml:space="preserve">
-    <value>Используйте другой сервис для регистрации.</value>
+    <value>Используйте внешний сервис для регистрации.</value>
   </data>
   <data name="Use this page to detail your site's privacy policy." xml:space="preserve">
     <value>Используйте эту страницу, чтобы детализировать политику конфиденциальности вашего сайта.</value>

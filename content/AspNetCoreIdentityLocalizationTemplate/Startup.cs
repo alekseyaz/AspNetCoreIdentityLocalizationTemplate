@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 using Microsoft.Extensions.Options;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreIdentityLocalization
 {
