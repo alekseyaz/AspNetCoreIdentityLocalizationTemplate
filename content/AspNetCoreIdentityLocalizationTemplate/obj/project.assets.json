@@ -8604,11 +8604,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Visual Studio\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
+      "projectUniqueName": "G:\\Repos\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
       "projectName": "AspNetCoreIdentityLocalization",
-      "projectPath": "G:\\Visual Studio\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
+      "projectPath": "G:\\Repos\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
       "packagesPath": "C:\\Users\\Aleksey\\.nuget\\packages\\",
-      "outputPath": "G:\\Visual Studio\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\obj\\",
+      "outputPath": "G:\\Repos\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Aleksey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8619,8 +8619,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.devexpress.com/CnkoWqPQ8isB4uN24vlderhmVx4DW39UhgbH2gVy8O1x4EtHPI/api": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -8679,7 +8678,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

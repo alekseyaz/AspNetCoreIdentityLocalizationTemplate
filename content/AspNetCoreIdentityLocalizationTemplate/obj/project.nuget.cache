@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qQG0BvfJi5yxoR2lGQKxlEiqW6qbtwNXXt8p2T33F+5uomM+qoLOpHQIGYv3eSj/s6z9lgTP/5zM+Xgu1i8DTw==",
+  "dgSpecHash": "JIwoZNh6ylol4PEvjhYC2pKBU85M9eB8/a1y2yHtQ7pXmTCbAMSQ0yOyPn/IjctVpUhJlyIYIccigHW6d5hGaw==",
   "success": true,
-  "projectFilePath": "G:\\Visual Studio\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
+  "projectFilePath": "G:\\Repos\\AspNetCoreIdentityLocalizationTemplate\\content\\AspNetCoreIdentityLocalizationTemplate\\AspNetCoreIdentityLocalization.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aleksey\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
     "C:\\Users\\Aleksey\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.3\\microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",

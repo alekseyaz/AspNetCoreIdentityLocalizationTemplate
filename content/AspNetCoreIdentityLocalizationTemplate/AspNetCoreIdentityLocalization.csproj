@@ -23,7 +23,6 @@ Minimal changes to a sample template ASP.NET Core Web Application (MVC, individu
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
