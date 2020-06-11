@@ -2,6 +2,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/mt0k4mhsm2vk8f9p?svg=true)](https://ci.appveyor.com/project/alekseyaz/aspnetcoreidentitylocalizationtemplate) [![NuGet Status](http://img.shields.io/nuget/v/AspNetCoreIdentityLocalizationTemplate.svg?style=flat-square)](https://www.nuget.org/packages/AspNetCoreIdentityLocalizationTemplate/) [Change log](https://github.com/alekseyaz/aspnetcoreidentitylocalizationtemplate/blob/master/Changelog.md)
 
+Локализация стандартного шаблона ASP.NET Core Identity с Razor Pages, добавил en-US, ru-RU, настроил переключение, минимум изменений с оригиналом, оформил в видел nuget пакета.
+
 ## Features
 
 - ASP.NET Core 3.1
