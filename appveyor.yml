@@ -5,11 +5,11 @@ image:
 init:
   - git config --global core.autocrlf true
 init:
-- cmd: >-
-    msbuild -version
+- cmd:
+  - msbuild -version
 
 
-    dotnet --version
+  - dotnet --version
 configuration: Release
 test: off
 build_script:
