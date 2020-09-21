@@ -3,28 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-AspNetCoreIdentityLocalization-F573EAED-CED4-4BBC-96C6-B40F1587143F</UserSecretsId>
-    <Description>
-      Creates an ASP.NET Core application using Identity with localisation and razor pages.
-      Minimal changes to a sample template ASP.NET Core Web Application (MVC, individual User Accounts).
-    </Description>
-    <PackageLicenseFile></PackageLicenseFile>
     <RepositoryUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</RepositoryUrl>
-    <PackageTags>ASP.NET Core Identity Razor Pages IdentityServer4 Localization Template</PackageTags>
-    <PackageProjectUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</PackageProjectUrl>
-    <Title>ASP.NET Core Identity Localization</Title>
-    <Authors>alekseyaz</Authors>
-    <Company>Zaac</Company>
-    <PackageType>Template</PackageType>
-    <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
     <Product>AspNetCoreIdentityLocalizationTemplate</Product>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <PackageIcon>icon.png</PackageIcon>
-    <IsPackable>true</IsPackable>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <FileVersion>1.0.5.0</FileVersion>
-    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -45,6 +28,9 @@
     <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
+    <IsPackable>true</IsPackable>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -52,17 +38,6 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <PackageLicenseFile></PackageLicenseFile>
-    <PackageTags>ASP.NET Core Identity Razor Pages IdentityServer4 Localization Template</PackageTags>
-    <PackageProjectUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</PackageProjectUrl>
-    <PackageType>Template</PackageType>
-    <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-  </PropertyGroup>
-  
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.3" />
