@@ -13,8 +13,8 @@ if(Test-Path .\artifacts) {
 & dotnet restore --no-cache
 
 [xml]$cn = Get-Content .\src\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj
-$env:MY_VARIABLE = $cn.Project.PropertyGroup.Version
-Write-Output "Version: $env:MY_VARIABLE"
+$env:assembly_version = $cn.Project.PropertyGroup.Version
+Write-Output "Assembly version: $env:assembly_version"
 
 
 $branch = @{ $true = $env:APPVEYOR_REPO_BRANCH; $false = $(git symbolic-ref --short -q HEAD) }[$NULL -ne $env:APPVEYOR_REPO_BRANCH];

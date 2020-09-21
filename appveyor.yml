@@ -7,7 +7,7 @@ init:
 configuration: Release
 test: off
 environment:
-  MY_VARIABLE: value
+  assembly_version: value
 build_script:
   - ps: ./Build.ps1
 
@@ -26,6 +26,6 @@ deploy:
   artifacts:
     /AspNetCoreIdentityLocalizationTemplate.*\.nupkg/
     /AspNetCoreIdentityLocalizationTemplate.*\.snupkg/
-  tag: v$(MY_VARIABLE)
+  tag: v$(assembly_version)
   on:
     branch: master
