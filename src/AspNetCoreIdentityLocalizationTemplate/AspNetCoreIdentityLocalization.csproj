@@ -17,7 +17,7 @@ Minimal changes to a sample template ASP.NET Core Web Application (MVC, individu
 	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <PackageIcon>icon.png</PackageIcon>
     <IsPackable>true</IsPackable>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
