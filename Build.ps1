@@ -13,7 +13,7 @@ if(Test-Path .\artifacts) {
 & dotnet restore --no-cache
 
 [xml]$cn = Get-Content .\src\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj
-$vn = $cn.Project.PropertyGroup.Version
+$Env:vn = $cn.Project.PropertyGroup.Version
 Write-Output "Version: $vn"
 
 
