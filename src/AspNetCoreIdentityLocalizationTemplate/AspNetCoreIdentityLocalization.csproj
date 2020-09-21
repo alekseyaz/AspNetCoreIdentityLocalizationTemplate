@@ -1,14 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-AspNetCoreIdentityLocalization-F573EAED-CED4-4BBC-96C6-B40F1587143F</UserSecretsId>
     <Description>Creates an ASP.NET Core application using Identity with localisation and razor pages.
 Minimal changes to a sample template ASP.NET Core Web Application (MVC, individual User Accounts).</Description>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile></PackageLicenseFile>
     <RepositoryUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</RepositoryUrl>
     <PackageTags>ASP.NET Core Identity Razor Pages IdentityServer4 Localization Template</PackageTags>
     <PackageProjectUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</PackageProjectUrl>
+    <Authors>Aleksey Zemskov</Authors>
+    <Company>Zaac</Company>
+    <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
+    <Product>AspNetCoreIdentityLocalizationTemplate</Product>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +43,10 @@ Minimal changes to a sample template ASP.NET Core Web Application (MVC, individu
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\assets\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
