@@ -6,6 +6,8 @@ init:
   - git config --global core.autocrlf true
 configuration: Release
 test: off
+environment:
+  MY_VARIABLE: value
 build_script:
   - ps: ./Build.ps1
 
@@ -24,6 +26,6 @@ deploy:
   artifacts:
     /AspNetCoreIdentityLocalizationTemplate.*\.nupkg/
     /AspNetCoreIdentityLocalizationTemplate.*\.snupkg/
-  tag: v$(Env:vn)
+  tag: $env:MY_VARIABLE
   on:
     branch: master
