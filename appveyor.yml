@@ -4,7 +4,6 @@ image:
   - Visual Studio 2019
 init:
   - git config --global core.autocrlf true
-  - dotnet --version
 configuration: Release
 test: off
 build_script:
@@ -25,6 +24,6 @@ deploy:
   artifacts:
     /AspNetCoreIdentityLocalizationTemplate.*\.nupkg/
     /AspNetCoreIdentityLocalizationTemplate.*\.snupkg/
-  tag: 'v{version}'
+  tag: {version}
   on:
     branch: master

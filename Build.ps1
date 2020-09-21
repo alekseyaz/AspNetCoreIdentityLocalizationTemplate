@@ -12,6 +12,11 @@ if(Test-Path .\artifacts) {
 
 & dotnet restore --no-cache
 
+[xml]$cn = Get-Content .\src\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj
+$v += $cn.Project.PropertyGroup.Version
+Write-Output "Version: $v"
+
+
 $branch = @{ $true = $env:APPVEYOR_REPO_BRANCH; $false = $(git symbolic-ref --short -q HEAD) }[$NULL -ne $env:APPVEYOR_REPO_BRANCH];
 $revision = @{ $true = "{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $false = "local" }[$NULL -ne $env:APPVEYOR_BUILD_NUMBER];
 $suffix = @{ $true = ""; $false = "$($branch.Substring(0, [math]::Min(10,$branch.Length)))-$revision"}[$branch -eq "master" -and $revision -ne "local"]
