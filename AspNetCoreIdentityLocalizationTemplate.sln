@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityLocalization", "src\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj", "{2304ADA6-ECB4-4643-BE52-C1EA64516BD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityLocalization", "src\content\AspNetCoreIdentityLocalization.csproj", "{2304ADA6-ECB4-4643-BE52-C1EA64516BD3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{88D21060-74DE-4DB4-AFD3-5A61CAD74202}"
 EndProject

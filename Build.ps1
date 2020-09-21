@@ -12,7 +12,7 @@ if(Test-Path .\artifacts) {
 
 & dotnet restore --no-cache
 
-[xml]$cn = Get-Content .\src\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj
+[xml]$cn = Get-Content .\src\content\AspNetCoreIdentityLocalization.csproj
 $env:assembly_version = $cn.Project.PropertyGroup.Version
 Write-Output "Assembly version: $env:assembly_version"
 
