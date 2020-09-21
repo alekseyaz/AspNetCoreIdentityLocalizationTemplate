@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -17,6 +17,11 @@ Minimal changes to a sample template ASP.NET Core Web Application (MVC, individu
 	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <PackageIcon>icon.png</PackageIcon>
     <IsPackable>true</IsPackable>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <FileVersion>1.0.3.0</FileVersion>
     <Version>1.0.3</Version>
   </PropertyGroup>
 
@@ -43,10 +48,11 @@ Minimal changes to a sample template ASP.NET Core Web Application (MVC, individu
     <Folder Include="wwwroot\lib\jquery\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <None Include="..\..\assets\icon.png">
       <Pack>True</Pack>
+      <Visible>False</Visible>
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
