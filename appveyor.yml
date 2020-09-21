@@ -30,6 +30,6 @@ deploy:
   artifacts:
     /AspNetCoreIdentityLocalizationTemplate.*\.nupkg/
     /AspNetCoreIdentityLocalizationTemplate.*\.snupkg/
-  tag: v{version}
+  tag: 'v{version}'
   on:
     branch: master
