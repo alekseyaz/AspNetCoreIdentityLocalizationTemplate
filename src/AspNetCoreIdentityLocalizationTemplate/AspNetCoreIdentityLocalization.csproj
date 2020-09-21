@@ -23,8 +23,6 @@
     <IsPackable>true</IsPackable>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <FileVersion>1.0.4.0</FileVersion>
     <Version>1.0.4</Version>
   </PropertyGroup>
