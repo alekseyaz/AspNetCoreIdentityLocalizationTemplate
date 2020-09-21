@@ -4,6 +4,12 @@ image:
   - Visual Studio 2019
 init:
   - git config --global core.autocrlf true
+init:
+- cmd: >-
+    msbuild -version
+
+
+    dotnet --version
 configuration: Release
 test: off
 build_script:
@@ -24,6 +30,6 @@ deploy:
   artifacts:
     /AspNetCoreIdentityLocalizationTemplate.*\.nupkg/
     /AspNetCoreIdentityLocalizationTemplate.*\.snupkg/
-  tag: v$(appveyor_build_version)
+  tag: v{version}
   on:
     branch: master
