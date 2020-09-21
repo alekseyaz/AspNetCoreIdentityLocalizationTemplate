@@ -1,15 +1,11 @@
 {
+    "$schema": "http://json.schemastore.org/template",
     "author": "alekseyaz",
-    "classifications": [
-        "AspNetCore",
-        "Identity"
-    ],
+    "classifications": [ "AspNetCore", "Identity" ],
     "name": "ASP.NET Core Identity Localization",
     "identity": "AspNetCoreIdentityLocalizationTemplate",
-    "shortName": "sts",
+    "shortName": "AspNetCoreIdentityLocalization",
     "tags": {
         "language": "C#"
-    },
-    "sourceName": "StsServerIdentity",
-    "preferNameDirectory": "true"
+    }
 }
