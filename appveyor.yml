@@ -11,7 +11,6 @@ build_script:
 
 artifacts:
 - path: artifacts/AspNetCoreIdentityLocalizationTemplate.*.nupkg
-- path: artifacts/AspNetCoreIdentityLocalizationTemplate.*.snupkg
 deploy:
 - provider: NuGet
   api_key:
