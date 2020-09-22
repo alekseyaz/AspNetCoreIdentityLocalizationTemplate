@@ -9,8 +9,6 @@ configuration: Release
 test: off
 environment:
   assembly_version: value
-#build_script:
-#  - ps: ./Build.ps1
 
 for:
 -
@@ -19,7 +17,6 @@ for:
       - image: Ubuntu
   build_script:
   - sh build.sh
-
 
 -
   matrix:
