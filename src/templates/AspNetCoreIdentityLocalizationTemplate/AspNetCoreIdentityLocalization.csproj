@@ -1,14 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RepositoryUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</RepositoryUrl>
-    <Product>AspNetCoreIdentityLocalizationTemplate</Product>
-	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  </PropertyGroup>
-
   <PropertyGroup>
     <Title>ASP.NET Core Identity Localization</Title>
     <Description>
@@ -22,6 +12,10 @@
     <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
     <FileVersion>1.0.7.0</FileVersion>
     <Version>1.0.7</Version>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RepositoryUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</RepositoryUrl>
+    <Product>AspNetCoreIdentityLocalizationTemplate</Product>
+	  <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
   </PropertyGroup>
 
   <ItemGroup>

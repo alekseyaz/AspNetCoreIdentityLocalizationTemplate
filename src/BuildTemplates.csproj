@@ -1,14 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-
-
   <PropertyGroup>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
   </PropertyGroup>
 
-  
   <PropertyGroup>
     <Title>ASP.NET Core Identity Localization</Title>
     <Company>Zaac</Company>
@@ -18,15 +14,6 @@
     <PackageIcon>icon.png</PackageIcon>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\assets\icon.png">
-      <Pack>True</Pack>
-      <Visible>False</Visible>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
 
   <PropertyGroup>
     <Description>
@@ -71,6 +58,12 @@
       <PackagePath>templates\</PackagePath>
     </Content>
     <Compile Remove="**\*" />
+
+    <None Include="..\assets\icon.png">
+      <Pack>True</Pack>
+      <Visible>False</Visible>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
