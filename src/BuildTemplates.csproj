@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+  <PropertyGroup>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  
+  <PropertyGroup>
+    <Title>ASP.NET Core Identity Localization</Title>
+    <Company>Zaac</Company>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageType>Template</PackageType>
+    <PackageId>AspNetCoreIdentityLocalizationTemplate</PackageId>
+    <PackageIcon>icon.png</PackageIcon>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\assets\icon.png">
+      <Pack>True</Pack>
+      <Visible>False</Visible>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+
+  <PropertyGroup>
+    <Description>
+      Creates an ASP.NET Core application using Identity with localisation and razor pages.
+      Minimal changes to a sample template ASP.NET Core Web Application (MVC, individual User Accounts).
+    </Description>
+    <Authors>Aleksey Zemskov</Authors>
+    <PackageProjectUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/alekseyaz/AspNetCoreIdentityLocalizationTemplate.git</RepositoryUrl>
+    <PackageTags>ASP.NET Core Identity Razor Pages IdentityServer4 Localization Template</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageType>Template</PackageType>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <FileVersion>1.0.7.0</FileVersion>
+    <Version>1.0.7</Version>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <ExcludeFromPackage>
+      templates/*/.fake/**/*;
+      templates/*/.ionide/**/*;
+      templates/*/.fable/**/*;
+      templates/*/node_modules/**/*;
+      templates/*/src/**/obj/**/*;
+      templates/*/src/**/bin/**/*;
+      templates/*/tests/**/obj/**/*;
+      templates/*/tests/**/bin/**/*;
+      templates/*/packages/**/*;
+      templates/*/paket-files/**/*;
+      templates/*/src/Client/deploy/**/*;
+      templates\**\bin\**;
+      templates\**\obj\**;
+    </ExcludeFromPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="$(ExcludeFromPackage)" >
+      <PackagePath>templates\</PackagePath>
+    </Content>
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

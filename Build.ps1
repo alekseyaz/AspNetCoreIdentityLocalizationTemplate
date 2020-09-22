@@ -12,7 +12,7 @@ if(Test-Path .\artifacts) {
 
 & dotnet restore --no-cache
 
-[xml]$cn = Get-Content .\src\content\AspNetCoreIdentityLocalization.csproj
+[xml]$cn = Get-Content .\src\templates\AspNetCoreIdentityLocalizationTemplate\AspNetCoreIdentityLocalization.csproj
 $env:assembly_version = $cn.Project.PropertyGroup.Version
 Write-Output "Assembly version: $env:assembly_version"
 
@@ -26,7 +26,7 @@ $buildSuffix = @{ $true = "$($suffix)-$($commitHash)"; $false = "$($branch)-$($c
 Write-Output "build: Package version suffix is $suffix"
 Write-Output "build: Build version suffix is $buildSuffix"
 
-foreach ($src in Get-ChildItem src/*) {
+<#foreach ($src in Get-ChildItem src/templates/*) {
     Push-Location $src
 
     Write-Output "build: Packaging project in $src"
@@ -41,6 +41,18 @@ foreach ($src in Get-ChildItem src/*) {
     if($LASTEXITCODE -ne 0) { exit 1 }
 
     Pop-Location
+}#>
+
+$src = Get-ChildItem src/*
+
+Push-Location $src
+
+Write-Output "pack: Packaging project in $src"
+
+if($suffix) {
+    & dotnet pack -c Release -o ..\artifacts --version-suffix=$suffix
+} else {
+    & dotnet pack -c Release -o ..\artifacts
 }
 
 Pop-Location
