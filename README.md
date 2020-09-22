@@ -5,25 +5,24 @@
 
 Локализация стандартного шаблона ASP.NET Core Identity с Razor Pages, добавил en-US, ru-RU, настроил переключение, минимум изменений с оригиналом, оформил в видел nuget пакета.
 
-## Features
+## Характеристики
 
 - ASP.NET Core 3.1
-- Latest ASP.NET Core Identity with Razor Pages
-- Localization en-US, ru-RU
-- minimum changes to the standard template
-- npm with bundleconfig used for frontend packages
+- Последняя версия ASP.NET Core Identity с Razor Pages
+- Локализация en-US, ru-RU
+- Минимальные изменения в стандартном шаблоне
 
-## Using the template
+## Использование шаблона
 
-### install
+### установить
 
-From NuGet:
+Из NuGet:
 
 ```
 dotnet new -i AspNetCoreIdentityLocalizationTemplate
 ```
 
-Locally built nupkg:
+Локально созданный nupkg:
 
 ```
 dotnet new -i AspNetCoreIdentityLocalizationTemplate.1.0.0.nupkg
