@@ -3,8 +3,8 @@ skip_tags: true
 image:
   - Visual Studio 2019
   - Ubuntu
-init:
-  - git config --global core.autocrlf true
+#init:
+#  - git config --global core.autocrlf true
 configuration: Release
 test: off
 environment:
