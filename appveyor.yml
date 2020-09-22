@@ -2,6 +2,7 @@ version: '{build}'
 skip_tags: true
 image:
   - Visual Studio 2019
+  - Ubuntu
 init:
   - git config --global core.autocrlf true
 configuration: Release
@@ -10,7 +11,13 @@ environment:
   assembly_version: value
 build_script:
   - ps: ./Build.ps1
-
+for:
+-
+  matrix:
+    only:
+      - image: Ubuntu
+  build_script:
+  - sh build.sh
 artifacts:
 - path: artifacts/AspNetCoreIdentityLocalizationTemplate.*.nupkg
 deploy:
