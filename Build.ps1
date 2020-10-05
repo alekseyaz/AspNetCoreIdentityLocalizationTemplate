@@ -43,7 +43,7 @@ Write-Output "build: Build version suffix is $buildSuffix"
     Pop-Location
 }#>
 
-# $src = Get-ChildItem src/*
+$src = Get-ChildItem src/
 
 Push-Location src/
 
